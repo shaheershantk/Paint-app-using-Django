@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+ 
+    <title>My Paint</title>
+ 
+    <!-- Bootstrap CSS file -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/static/css/paintapp.css" rel="stylesheet" />
+    <link href="/static/css/bootstrap-theme.min.css" rel="stylesheet" />
+
+</head> 
+<body>
+
+
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2" >     
+              <div id="toolbox" >      
+                 
+                 <br><button type="button" class="btn btn-primary" id="clear">Clear</button></br>
+                 <br><button type="button" class="btn btn-primary" id="rectangle">Rectangle</button></br>
+                 <br><button type="button" class="btn btn-primary" id="circle">Circle</button></br>
+                 <br><button type="button" class="btn btn-primary" id="pencil">Pencil</button></br>
+                 <br><button type="button" class="btn btn-primary" id="line">Line</button></br>
+                 <br><button type="button" class="btn btn-primary" id="fill">Fill</button></br>
+                 
+                 
+            
+              </div>
+              <div >
+                <br>
+                <input id="imagename" name="imagename">
+                <button type="button" class="btn btn-primary" id="save">SAVE</button>
+                <br> 
+              </div>
+
+            </div>
+
+
+            <div class="col-md-8"> 
+              <div >
+                <h1>My Paint</h1>
+             
+                <div class="container">
+                    <canvas id="paint" width="650" height="420"></canvas>
+                </div>
+       
+
+              </div>
+            </div>
+              
+    
+            <div class="col-md-2"> 
+                 <div id="gallery" >
+                    <h2>GALLERY</h2>
+                    {% for image in images %}
+                    <form method="post" >
+                    <input type=button  value="{{ image.title }}" onclick="load(this.value,this.id)"style="width: 55px; height: 25px"><hr>
+                    
+                    {% endfor %}
+                                  
+                    
+                 </div>
+            </div>
+              
+
+            
+          
+        </div>
+    </div>
+
+    
+</div>
+
+
+    <!-- Jquery and Bootstrap Script files -->
+
+
+ 
+<script src="/static/js/paint.js"></script>
+<script src="/static/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    
+   
+</body>
+</html>
